@@ -8,7 +8,7 @@ interface GetCurrentUsersMessagesProps {
 }
 export const getCurrentUsersMessages = createEffect(async ({ senderId, recipientId }:GetCurrentUsersMessagesProps) => {
   const headers = { senderId, recipientId };
-  const res = await request('process.env.REACT_APP_API_URLmessage/getMessages', 'GET', null, headers);
+  const res = await request('  https://backend-car.herokuapp.com/message/getMessages', 'GET', null, headers);
   return res;
 });
 interface IMessageProps {
@@ -18,7 +18,7 @@ interface IMessageProps {
 }
 export const sendMessage = createEffect(async ({ senderId, recipientId, messageText }:IMessageProps) => {
   const res = await request(
-    'process.env.REACT_APP_API_URLmessage/sendMessage',
+    ' https://backend-car.herokuapp.com/message/sendMessage',
     'POST',
     JSON.stringify({ senderId, recipientId, messageText }),
   );
