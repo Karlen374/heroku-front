@@ -28,11 +28,11 @@ const userProfile = ({ user }:UserProfileProps) => {
     deleteUserAvatar();
   };
   const userAvatar = (user?.avatar && user?._id !== userData?._id)
-    ? <img alt={user.userName} src={`${process.env.REACT_APP_API_URL}${user.avatar}`} height="150" />
+    ? <img alt={user.userName} src={`  https://backend-car.herokuapp.com/${user.avatar}`} height="150" />
     : null;
 
   const loginUserAvatar = (userData?.avatar && user?._id === userData?._id)
-    ? <img alt={userData.userName} src={`${process.env.REACT_APP_API_URL}${userData.avatar}`} height="150" />
+    ? <img alt={userData.userName} src={`  https://backend-car.herokuapp.com/${userData.avatar}`} height="150" />
     : null;
 
   const uploadAvatar = (user?._id === userData?._id && !userData?.avatar) ? (

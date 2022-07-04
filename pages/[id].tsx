@@ -4,7 +4,7 @@ import MainLayout from 'src/layouts/MainLayout';
 import { ICar } from 'src/types/ICar';
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}api/cars/${params.id}`);
+  const res = await fetch(`  https://backend-car.herokuapp.com/api/cars/${params.id}`);
   const car = await res.json();
   return {
     props: {

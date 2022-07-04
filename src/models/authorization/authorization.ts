@@ -6,7 +6,7 @@ import { IUser } from 'src/types/IUser';
 import { request } from 'src/hooks/useHttp';
 
 export const userRegistration = createEffect(async (data:IRegistrationForm) => {
-  const res = await request(`${process.env.REACT_APP_API_URL}auth/registration`, 'POST', JSON.stringify(data));
+  const res = await request('https://backend-car.herokuapp.com/auth/registration', 'POST', JSON.stringify(data));
   return res;
 });
 
@@ -30,7 +30,7 @@ export const $registrationMessage = createStore<string>('')
   .on(checkRegistrationMessage, (_, message) => message);
 
 export const userLogin = createEffect(async (data:ILoginForm) => {
-  const res = await request(`${process.env.REACT_APP_API_URL}auth/login`, 'POST', JSON.stringify(data));
+  const res = await request('https://backend-car.herokuapp.com/auth/login', 'POST', JSON.stringify(data));
   return res;
 });
 
@@ -59,7 +59,7 @@ export const uploadUserAvatar = createEffect(async (file) => {
   const headers = {
     Authorization: `Bearer ${JSON.parse(getLocalStorage()?.getItem('data')).token}`,
   };
-  const res = await request(`${process.env.REACT_APP_API_URL}static/avatar`, 'POST', formData, headers);
+  const res = await request('https://backend-car.herokuapp.com/static/avatar', 'POST', formData, headers);
   return res;
 });
 
@@ -67,7 +67,7 @@ export const deleteUserAvatar = createEffect(async () => {
   const headers = {
     Authorization: `Bearer ${JSON.parse(getLocalStorage()?.getItem('data')).token}`,
   };
-  const res = await request(`${process.env.REACT_APP_API_URL}static/avatar`, 'DELETE', null, headers);
+  const res = await request('https://backend-car.herokuapp.com/static/avatar', 'DELETE', null, headers);
   return res;
 });
 

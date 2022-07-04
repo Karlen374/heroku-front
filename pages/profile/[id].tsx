@@ -3,7 +3,7 @@ import MainLayout from 'src/layouts/MainLayout';
 import { IUser } from 'src/types/IUser';
 
 export async function getServerSideProps({ params }) {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}auth/users/${params.id}`);
+  const res = await fetch(`  https://backend-car.herokuapp.com/auth/users/${params.id}`);
   const user = await res.json();
   return {
     props: {

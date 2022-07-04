@@ -2,7 +2,7 @@ import { createStore, createEffect } from 'effector';
 import { IModels } from 'src/types/iModels';
 import { request } from 'src/hooks/useHttp';
 
-const apiBase = `${process.env.REACT_APP_API_URL}api/models`;
+const apiBase = 'https://backend-car.herokuapp.com/api/models';
 
 export const getModelsForAutocomplete = createEffect(async (inputText:string) => {
   const body = {

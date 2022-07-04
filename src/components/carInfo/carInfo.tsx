@@ -45,7 +45,7 @@ const CarInfo = ({ car }:CarInfoProps) => {
   const likeButton = !liked
     ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: red[900] }} />;
   const carPhoto = currentCarPhoto
-    ? `${process.env.REACT_APP_API_URL}cars/${currentCarPhoto}` : `${process.env.REACT_APP_API_URL}noPhoto.jpg`;
+    ? `  https://backend-car.herokuapp.com/cars/${currentCarPhoto}` : '  https://backend-car.herokuapp.com/noPhoto.jpg';
 
   const carPhotoChange = currentCarPhoto
     ? (

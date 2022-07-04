@@ -9,7 +9,7 @@ import { $viewedCars } from 'src/models/viewedCars/viewedCars';
 import { ICar } from 'src/types/ICar';
 
 export async function getStaticProps() {
-  const res = await fetch(`${process.env.REACT_APP_API_URL}api/cars`);
+  const res = await fetch('https://backend-car.herokuapp.com/api/cars');
   const data = await res.json();
   return {
     props: {

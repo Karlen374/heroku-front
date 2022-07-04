@@ -62,7 +62,7 @@ const AppHeader = () => {
         <Link href={`/profile/${userData._id}`}>
           <Chip
             avatar={userData.avatar
-              ? <Avatar alt={userData.userName} src={`${process.env.REACT_APP_API_URL}${userData.avatar}`} />
+              ? <Avatar alt={userData.userName} src={`  https://backend-car.herokuapp.com/${userData.avatar}`} />
               : <Avatar>{userData.userName[0]}</Avatar>}
             sx={{ color: grey[50] }}
             variant="outlined"
