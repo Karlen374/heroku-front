@@ -73,7 +73,7 @@ const CarItem = ({ id }:CarItemsProps) => {
     );
   }
 
-  const carPhoto = item?.carPhoto ? `  https://backend-car.herokuapp.com/cars/${item.carPhoto}`
+  const carPhoto = item?.carPhoto ? `https://backend-car.herokuapp.com/cars/${item.carPhoto}`
     : 'https://backend-car.herokuapp.com/noPhoto.jpg';
 
   const likeButton = item.likedUsersId.includes(userData?._id)

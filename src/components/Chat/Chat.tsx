@@ -34,7 +34,7 @@ const Chat = () => {
   }, [currentUsersChat]);
 
   useEffect(() => {
-    socket.current = new WebSocket('ws://localhost:5001');
+    socket.current = new WebSocket('ws://https://backend-car.herokuapp.com/');
     socket.current.onmessage = (event) => {
       if (JSON.parse(event.data).event !== 'write') {
         const messageFromSocket = JSON.parse(event.data);
