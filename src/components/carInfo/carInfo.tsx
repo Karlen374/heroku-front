@@ -45,7 +45,7 @@ const CarInfo = ({ car }:CarInfoProps) => {
   const likeButton = !liked
     ? <FavoriteBorderIcon /> : <FavoriteIcon sx={{ color: red[900] }} />;
   const carPhoto = currentCarPhoto
-    ? `http://localhost:5000/cars/${currentCarPhoto}` : 'http://localhost:5000/noPhoto.jpg';
+    ? `${process.env.REACT_APP_API_URL}cars/${currentCarPhoto}` : `${process.env.REACT_APP_API_URL}noPhoto.jpg`;
 
   const carPhotoChange = currentCarPhoto
     ? (

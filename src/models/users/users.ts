@@ -8,7 +8,7 @@ export const getUsers = createEffect(async () => {
     'Content-Type': 'application/json',
     Authorization: `Bearer ${JSON.parse(getLocalStorage()?.getItem('data')).token}`,
   };
-  const res = await request('http://localhost:5000/auth/users', 'GET', null, headers);
+  const res = await request(`${process.env.REACT_APP_API_URL}auth/users`, 'GET', null, headers);
   return res;
 });
 

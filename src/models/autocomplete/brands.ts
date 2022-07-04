@@ -2,7 +2,7 @@ import { createStore, createEffect } from 'effector';
 import { IBrands } from 'src/types/IBrands';
 import { request } from 'src/hooks/useHttp';
 
-const apiBaseBrands = 'http://localhost:5000/api/brands';
+const apiBaseBrands = `${process.env.REACT_APP_API_URL}api/brands`;
 
 export const getBrandsForAutocomplete = createEffect(async (inputText:string) => {
   const body = {

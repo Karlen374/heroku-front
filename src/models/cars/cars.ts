@@ -3,7 +3,7 @@ import { ICar } from 'src/types/ICar';
 import { request } from 'src/hooks/useHttp';
 import { getLocalStorage } from 'src/hooks/hooks';
 
-const apiBase = 'http://localhost:5000/api/cars';
+const apiBase = 'process.env.REACT_APP_API_URLapi/cars';
 
 export const addCar = createEffect(async (car:ICar) => {
   const res = await request(apiBase, 'POST', JSON.stringify(car));
@@ -16,13 +16,13 @@ export const saveEditCar = createEffect(async (editCar:ICar) => {
 });
 
 export const changeLiked = createEffect(async ({ carId, userId }) => {
-  const url = 'http://localhost:5000/api/carLike';
+  const url = 'process.env.REACT_APP_API_URLapi/carLike';
   const res = await request(url, 'PUT', JSON.stringify({ carId, userId }));
   return res;
 });
 
 export const changeViewedCar = createEffect(async ({ carId, userId }) => {
-  const url = 'http://localhost:5000/api/carViewed';
+  const url = 'process.env.REACT_APP_API_URLapi/carViewed';
   const res = await request(url, 'PUT', JSON.stringify({ carId, userId }));
   return res;
 });
@@ -33,7 +33,7 @@ export const uploadCarPhoto = createEffect(async ({ file, carId }) => {
   const headers = {
     carId,
   };
-  const res = await request('http://localhost:5000/api/addPhoto', 'POST', formData, headers);
+  const res = await request('process.env.REACT_APP_API_URLapi/addPhoto', 'POST', formData, headers);
   return res;
 });
 
@@ -41,7 +41,7 @@ export const deleteCarPhoto = createEffect(async (carId: string) => {
   const headers = {
     carId,
   };
-  const res = await request('http://localhost:5000/api/delPhoto', 'DELETE', null, headers);
+  const res = await request('process.env.REACT_APP_API_URLapi/delPhoto', 'DELETE', null, headers);
   return res;
 });
 

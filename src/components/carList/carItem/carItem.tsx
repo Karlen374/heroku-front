@@ -55,7 +55,7 @@ const CarItem = ({ id }:CarItemsProps) => {
     getCurrentChatRecipientName({ senderId: userData._id, recipientId: item.userId, recipientName: item.userName });
   };
   const loadData = async () => {
-    const res = await fetch(`http://localhost:5000/api/cars/${id}`);
+    const res = await fetch(`${process.env.REACT_APP_API_URL}api/cars/${id}`);
     const data = await res.json();
     setItem(data);
   };
@@ -73,7 +73,8 @@ const CarItem = ({ id }:CarItemsProps) => {
     );
   }
 
-  const carPhoto = item?.carPhoto ? `http://localhost:5000/cars/${item.carPhoto}` : 'http://localhost:5000/noPhoto.jpg';
+  const carPhoto = item?.carPhoto ? `${process.env.REACT_APP_API_URL}cars/${item.carPhoto}`
+    : `${process.env.REACT_APP_API_URL}noPhoto.jpg`;
 
   const likeButton = item.likedUsersId.includes(userData?._id)
     ? <FavoriteIcon sx={{ color: red[900] }} /> : <FavoriteBorderIcon />;
