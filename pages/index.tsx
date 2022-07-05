@@ -15,6 +15,7 @@ export async function getStaticProps() {
     props: {
       data,
     },
+    revalidate: 10,
   };
 }
 
@@ -24,9 +25,14 @@ interface IndexPage {
 const Index = ({ data }:IndexPage) => {
   const viewedCars = useStore($viewedCars);
 
+  // const [shouldRender, setShouldRender] = useState(false);
+
   useEffect(() => {
+    // setShouldRender(true);
     loadCars(data);
   }, []);
+
+  // if (!shouldRender) return null;
 
   return (
     <>
